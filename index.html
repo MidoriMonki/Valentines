@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Valentine Moo</title>
     </head>
 
     <script>
 
         //document.getElementById('mooAudio').volume = 0.2;
 
+        var largestZ = 100;
+        document.addEventListener('DOMContentLoaded', () => {
+            const photos = document.querySelectorAll('.outerPhoto');
+            photos.forEach(photo => {
+                photo.addEventListener('mouseenter', handleMouseEnter);
+            });
+        });
         let responses = ['What a rude moo, again,<br> will you be my <span style="--i:1">v</span><span style="--i:2">a</span><span style="--i:3">l</span><span style="--i:4">e</span><span style="--i:5">n</span><span style="--i:6">t</span><span style="--i:7">i</span><span style="--i:8">n</span><span style="--i:9">e</span><span style="--i:10">?</span>',
                          'Are you sure you don'+"'"+'t want to be my <span style="--i:1">v</span><span style="--i:2">a</span><span style="--i:3">l</span><span style="--i:4">e</span><span style="--i:5">n</span><span style="--i:6">t</span><span style="--i:7">i</span><span style="--i:8">n</span><span style="--i:9">e</span><span style="--i:10">?</span>',
                          "Little monkey is sad now, will you be my "+'<span style="--i:1">v</span><span style="--i:2">a</span><span style="--i:3">l</span><span style="--i:4">e</span><span style="--i:5">n</span><span style="--i:6">t</span><span style="--i:7">i</span><span style="--i:8">n</span><span style="--i:9">e</span><span style="--i:10">?</span>'
@@ -26,6 +33,11 @@
             document.getElementById('mooAudio').volume = 0.3;
             document.getElementById('start').style.display = "none";
             document.getElementById('next').style.display = "block";
+        }
+
+        function handleMouseEnter(e){
+            console.log('Changing z-index of', e.target, 'to', largestZ);
+            e.target.style.zIndex = largestZ++;
         }
 
 
@@ -61,7 +73,7 @@
     }
     @keyframes cara{
         0%{transform: translate(-40vw, var(--y)); visibility:visible;}
-        100%{transform: translate(500vw, var(--y)); visibility:visible;}
+        100%{transform: translate(750vw, var(--y)); visibility:visible;}
     }
 
     @keyframes wavy{
@@ -144,7 +156,7 @@
     }
     .outerPhoto:hover{
         animation-play-state: paused;
-        z-index: 100;
+        /*z-index: 100;*/
     }
 
     .outerPhoto{
@@ -154,7 +166,7 @@
         padding: 0;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
-        animation: cara calc(685s*var(--speed)) linear infinite;
+        animation: cara calc(965s*var(--speed)) linear infinite;
         animation-delay: var(--offset);
         display: grid;
         visibility: hidden;
@@ -166,8 +178,7 @@
 
     <body style="padding: 0; margin: 0; overflow: hidden; height: 100vh; background: linear-gradient(to top, rgba(242, 232, 232) 0%,rgb(255, 182, 182) 100%);">
 
-
-        <audio id="mooAudio" style="visibility: hidden;">
+        <audio id="mooAudio" style="visibility: hidden;" loop>
             <source src="up.mp3" type="audio/mpeg">
         </audio>
 
@@ -201,8 +212,8 @@
             <div class="outerPhoto" style="--offset: 55s; --speed: .19; --y: -10vw;"><img class="photo" src="5.png"><div class="photoBack">Poo's Birthday<br>Dec 2024</div></div>
             <div class="outerPhoto" style="--offset: 60s; --speed: .21; --y: 10vw;"><img class="photo" src="6.png"><div class="photoBack">First Date<br>Feb 2024</div></div>
             <div class="outerPhoto" style="--offset: 65s; --speed: .19; --y: 0vw;"><img class="photo" src="7.png"><div class="photoBack">Aquarium Date<br>May 2024</div></div>
-            <div class="outerPhoto" style="--offset: 70s; --speed: .2; --y: -5vw;"><img class="photo" src="8.png"><div class="photoBack">Bali Monkey<br>Dec 2025</div></div>
-            <div class="outerPhoto" style="--offset: 75s; --speed: .2; --y: 10vw;"><img class="photo" src="12.png"><div class="photoBack">Gingerbread Competition<br>Dec 2024</div></div>
+            <div class="outerPhoto" style="--offset: 70s; --speed: .2; --y: -5vw;"><img class="photo" src="8.png"><div class="photoBack">Gingerbread Competition<br>Dec 2024</div></div>
+            <div class="outerPhoto" style="--offset: 75s; --speed: .2; --y: 10vw;"><img class="photo" src="12.png"><div class="photoBack">Isela Engagement Party<br>May 2025</div></div>
             <div class="outerPhoto" style="--offset: 80s; --speed: .21; --y: 0vw;"><img class="photo" src="15.png"><div class="photoBack">Bell Rapids<br>Jul 2025</div></div>
             <div class="outerPhoto" style="--offset: 85s; --speed: .21; --y: 5vw;"><img class="photo" src="16.png"><div class="photoBack">Hiking Morning<br>Jul 2025</div></div>
             <div class="outerPhoto" style="--offset: 90s; --speed: .19; --y: -10vw;"><img class="photo" src="17.png"><div class="photoBack">Happy Moo<br>Jul 2025</div></div>
@@ -215,6 +226,16 @@
             <div class="outerPhoto" style="--offset: 125s; --speed: .21; --y: 5vw;"><img class="photo" src="26.png"><div class="photoBack">Christmas Dinner<br>Dec 2025</div></div>
             <div class="outerPhoto" style="--offset: 130s; --speed: .19; --y: -10vw;"><img class="photo" src="27.png"><div class="photoBack">Bird park<br>Dec 2025</div></div>
             <div class="outerPhoto" style="--offset: 135s; --speed: .21; --y: 5vw;"><img class="photo" src="28.png"><div class="photoBack">Very Pretty Moo<br>Dec 2025</div></div>
+            <div class="outerPhoto" style="--offset: 140s; --speed: .21; --y: 10vw;"><img class="photo" src="29.png"><div class="photoBack">Ice Skating<br>Jan 2026</div></div>
+            <div class="outerPhoto" style="--offset: 145s; --speed: .19; --y: -10vw;"><img class="photo" src="30.png"><div class="photoBack">Beach Monkey<br>Dec 2025</div></div>
+            <div class="outerPhoto" style="--offset: 150s; --speed: .21; --y: 10vw;"><img class="photo" src="31.png"><div class="photoBack">Minecraft Moovie<br>Apr 2025</div></div>
+            <div class="outerPhoto" style="--offset: 155s; --speed: .19; --y: 0vw;"><img class="photo" src="32.png"><div class="photoBack">Gingerbread Competition #2<br>Dec 2025</div></div>
+            <div class="outerPhoto" style="--offset: 160s; --speed: .2; --y: -5vw;"><img class="photo" src="33.png"><div class="photoBack">Airport<br>Dec 2025</div></div>
+            <div class="outerPhoto" style="--offset: 165s; --speed: .21; --y: 10vw;"><img class="photo" src="34.png"><div class="photoBack"><br>3D Modelling<br>Oct 2025</div></div>
+            <div class="outerPhoto" style="--offset: 170s; --speed: .2; --y: 5vw;"><img class="photo" src="35.png"><div class="photoBack">Cute Cakes<br>Jan 2026</div></div>
+            <div class="outerPhoto" style="--offset: 175s; --speed: .21; --y: 0vw;"><img class="photo" src="36.png"><div class="photoBack">Silent Disco<br>Mar 2025</div></div>
+            <div class="outerPhoto" style="--offset: 180s; --speed: .21; --y: 5vw;"><img class="photo" src="37.png"><div class="photoBack">Easter Bunny<br>Apr 2025</div></div>
+            <div class="outerPhoto" style="--offset: 185s; --speed: .19; --y: -10vw;"><img class="photo" src="38.png"><div class="photoBack">Strawberry Fields<br>Nov 2025</div></div>
 
     </body>
 </html>
