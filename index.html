@@ -27,7 +27,7 @@
         }
 
         function music(){
-            document.getElementById('mooAudio').play();
+            //document.getElementById('mooAudio').play();
             document.getElementById('mooAudio').volume = .3;
         }
 
@@ -169,7 +169,7 @@
     <body style="padding: 0; margin: 0; overflow: hidden; height: 100vh; background: linear-gradient(to top, rgba(242, 232, 232) 0%,rgb(255, 182, 182) 100%);">
 
 
-        <audio id="mooAudio" style="visibility: hidden;" controls onloadedmetadata="music();">
+        <audio id="mooAudio" style="visibility: hidden;" mute autoplay controls onloadedmetadata="music();">
             <source src="up.mp3" type="audio/mpeg">
         </audio>
 
